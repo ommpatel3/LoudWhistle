@@ -33,6 +33,11 @@ class VideoCamera(object):
 
         id_image = face_recognition.load_image_file("id.jpeg")#modi
         # print("loading complete---------")
+        
+        # remember to connect a function for screen shot id, then a function for webcam
+        #then connect both functions as variables into the comparison function
+        #then finally write code that allows connection to block chain file once requriments are satisfied
+           
 
         try:
             person_face_encoding = face_recognition.face_encodings(person_image)[0]
@@ -52,4 +57,3 @@ class VideoCamera(object):
         print("Is the unknown face a picture of akshay? {}".format(results[0]))
         print("Is the unknown face a picture of modi? {}".format(results[1]))
         
-           
