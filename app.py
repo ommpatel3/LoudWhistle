@@ -9,7 +9,9 @@ def index():
 
 def gen(camera):
     while True:
-        frame = camera.get_frame()
+        frame = camera.get_frame()  
+        if cv2.waitKey(1)%256 == 32: #when spece is pressed, stop showing video
+            break
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 

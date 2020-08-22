@@ -58,7 +58,7 @@ blockchain = Blockchain()
 # blockchain.new_block(4545664566)
 # t5 = blockchain.new_input('jjon james', '6 goling drive', 'kartick2@gmal.com')
 # blockchain.new_block(455675676)
-# t6 = blockchain.new_input('RJ Dhran', '75a', 'rjdharn@gmail.com')
+# t6 = blockchain.new_input('RJ Dharan', '75a', 'rjdharn@gmail.com')
 # blockchain.new_block(452342346)
 
 # print("This is our first blockhain: ", blockchain.chain)
