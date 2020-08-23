@@ -1,5 +1,5 @@
-import face_recognition
-
+#import face_recognition
+   
 def check_identity():
 
     person_image = face_recognition.load_image_file("identity.png") #person saves

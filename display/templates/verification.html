@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+  
 {% block content %}
     <title>Verification</title>
     <style>
@@ -23,7 +23,7 @@
     <h1 align="center">Video Streaming Demonstration</h1>
     <img id="bg" class="center" src="{{ url_for('video_feed') }}">
 
-    <form method="post" action="{{ url_for('verification') }}">
+    <form method="post" action="/takescreenshot">
 
       <center><input type="submit" value="Take Photo" name="Take Photo"/></center>
   

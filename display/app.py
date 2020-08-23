@@ -3,7 +3,8 @@ import sqlite3
 from werkzeug.exceptions import abort
 import blockchain
 from camera import VideoCamera
-
+import cv2
+import pyautogui
 
 
 def get_db_connection():
@@ -125,7 +126,7 @@ def about():
 
 #new face-id
 
-@app.route('/verification')
+@app.route('/display', methods= ['GET','POST'])
 def verification():
     return render_template('verification.html')
 
@@ -134,18 +135,34 @@ def gen(camera):
     while screenshot == False:
         frame = camera.get_frame()
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-def contact():
-    if request.method == 'POST':
-        if request.form.get['Take Photo'] == 'Take Photo':
-            print("Button was pressed")
-    elif request.method == 'GET':
-        print("Button was pressed")
-    return render_template('verification.html', form=form)
-
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n') 
+    
 
 @app.route('/video_feed')
 def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/takescreenshot', methods = ['GET','POST'])
+def contact():
+    if request.method == 'POST':
+        if request.form['Take Photo'] == 'Take Photo':
+            screenshot = True
+            myScreenshot = pyautogui.screenshot()
+            myScreenshot.save(r'./persontest.png')
+            print('screenshot was taken!')
+            
+
+
+         
+    elif request.method == 'GET':
+        print("Button was not pressed")
+    return render_template('verification.html')
+# def contact():
+#     if request.method == 'POST':
+#         if request.form.get['Take Photo'] == 'Take Photo':
+#             screenshot = True
+#     elif request.method == 'GET':
+#         print("Button was pressed")
+#     return render_template('index.html', form=form)
