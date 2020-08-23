@@ -25,13 +25,17 @@
 
     <form method="post" action="/takescreenshot">
 
-      <center><input type="submit" value="Take Photo" name="Take Photo"/></center>
+      <center><input type="submit" onclick= "notification()" value="Take Photo" name="Take Photo"/></center>
+    
   
     </form>
+    <form method="post" action="/comparefaces">
+    <center><input type="submit" value="Verify" name="Verify"/></center>
+  </form>
 
     <script>
       function notification(){
-        alert("Place your photo id. Then the first Screenshot of this image now. Name this id.png. Then click ok, and take a picture of your face now. Then name this file as identity.png. Remember, please use the green square in your favour")
+        alert("Place your photo id. Then the first Screenshot of this image now. Name this id.png. Then click ok, and click take photo twice in orded to take a picture of your face. Then name this file as identity.png. Remember, please use the green square in your favour")
       }
       
     </script>

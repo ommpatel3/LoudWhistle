@@ -45,8 +45,7 @@ def create():
         title = request.form['title']
         content = request.form['content']
         category = request.form['category']
-        # username = request.form['username']
-        # email = request.form['email']
+    
 
         if not title:
             flash('Title is required!')
@@ -58,7 +57,6 @@ def create():
             return redirect(url_for('index'))
     
     return render_template('create.html')
-
 
 
 
@@ -84,48 +82,6 @@ def about():
 
 
 
-
-#Face-ID
-# @app.route('/verification', methods= ['GET','POST'])
-# def verification():
-#     return render_template('verification.html')
-
-# screenshot=False
-
-# def gen(camera):
-#     while screenshot==False:
-#         frame = camera.get_frame()
-#         yield (b'--frame\r\n'
-#                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-# ##########################  BUTTON GARBAGE
-# def contact():
-#     if request.method == 'POST':
-#         if request.form.get['Take Photo'] == 'Take Photo':
-#             screenshot = True
-#     elif request.method == 'GET':
-#         print("Button was pressed")
-#     return render_template('verification.html', form=form)
-
-# def comparison():
-#     if request.method == 'POST':
-#         if request.form.get['Verify'] == 'Verify':
-#             print("pressed verify")
-#             #confirm.check_identity()
-#     elif request.method == 'GET':
-#         print("Button was pressed")
-#     #return render_template('index.html', form=form)
-# #########################   END OF BUTTON GARBAGE
-
-# @app.route('/video_feed')
-# def video_feed():
-#     return Response(gen(VideoCamera()),
-#                     mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
-
-#new face-id
-
 @app.route('/display', methods= ['GET','POST'])
 def verification():
     return render_template('verification.html')
@@ -148,21 +104,20 @@ def video_feed():
 def contact():
     if request.method == 'POST':
         if request.form['Take Photo'] == 'Take Photo':
-            screenshot = True
-            myScreenshot = pyautogui.screenshot()
+            screenshot = True 
+            myScreenshot = pyautogui.screenshot(region=(330,130, 700, 500))
             myScreenshot.save(r'./persontest.png')
             print('screenshot was taken!')
-            
-
-
-         
     elif request.method == 'GET':
         print("Button was not pressed")
     return render_template('verification.html')
-# def contact():
-#     if request.method == 'POST':
-#         if request.form.get['Take Photo'] == 'Take Photo':
-#             screenshot = True
-#     elif request.method == 'GET':
-#         print("Button was pressed")
-#     return render_template('index.html', form=form)
+
+@app.route('/comparefaces', methods = ['GET','POST'])
+def comparison():
+    if request.method == 'POST':
+        if request.form['Verify'] == 'Verify':
+            print('FRIEDRICE------------------------')
+    elif request.method == 'GET':
+        print("Button was not pressed")
+    return render_template('verification.html')
+
