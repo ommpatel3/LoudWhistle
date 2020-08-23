@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to Loud_Whistle {% endblock %}</h1>
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+        
+        <span class="badge badge-secondary">{{ post['category'] }}</span>
+        
+        <hr>
+    {% endfor %}
+{% endblock %}

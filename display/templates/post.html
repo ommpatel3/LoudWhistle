@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <span class="badge badge-primary">{{ post['category'] }}</span>
+    <p>{{ post['content'] }}</p>
+
+   <!-- <p><a href="mailto:info@example.com">Open the email client</a></p>-->
+    </body>
+    
+    
+
+{% endblock %}
