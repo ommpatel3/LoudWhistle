@@ -1,10 +1,10 @@
-#import face_recognition
-   
+import face_recognition
+  
 def check_identity():
 
-    person_image = face_recognition.load_image_file("identity.png") #person saves
+    person_image = face_recognition.load_image_file("persontest.png") #person saves
 
-    id_image = face_recognition.load_image_file("id.png")#modi
+    id_image = face_recognition.load_image_file("id.png")
     # print("loading complete---------")
     
     # remember to connect a function for screen shot id, then a function for webcam
@@ -27,6 +27,6 @@ def check_identity():
     print("Do the photos match? {}".format(results[0]))
 
 
+    
 
-#check_identity()
 

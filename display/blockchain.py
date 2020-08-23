@@ -2,7 +2,8 @@ import hashlib
 import json
 from time import time
 import random
-
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 class Blockchain(object):
     def __init__(self):
@@ -16,7 +17,7 @@ class Blockchain(object):
             'index': len(self.chain) + 1,
             #this is the info of each block that 
             'timestamp': time(),
-            'info': self.pending_input,
+            #'info': self.pending_input,
             'proof': proof,
             'previous_hash': previous_hash or self.hash(self.chain[-1])
         }
@@ -51,24 +52,24 @@ blockchain = Blockchain()
 def automation(name, address, email):
 
     blockchain.new_input(name, address, email)
-    blockchain.new_block(random.randint(10000, 10000000))
+    a = blockchain.new_block(random.randint(10000, 10000000))
     
     chain_list = blockchain.chain
-        
-    with open(r'./test.txt','w') as fout:
-            #json.dump(object to be added goes here, filename goes here)
-            # data = {
-            #     "hashed_block" : chain_list
-            # }
-            # json.dump(str(chain_list), fout)
-            fout.write(str(chain_list))
-            fout.write('\n')
-            fout.close()
+
+    spreadsheetId = "1qTITycZDJZLm3VNvRUMXxaHLcjIu_frw5Aylny7AkOI"  # Please set the Spreadsheet ID.
+    sheetName = "test1"  # Please set the sheet name.
+    scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive'] 
+    creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+    client = gspread.authorize(creds)
+    header_to_key =  a
 
 
-    # with open('./chain.json','r') as read_file:
-    #         mydata = json.load((read_file))
-    # print(chain_list)
-    
+    spreadsheet = client.open(sheetName)
+    worksheet = spreadsheet.worksheet(sheetName)
+
+    sheet = client.open(sheetName)
+    ws = sheet.worksheet('myWorksheet')
+    ws.update_acell('A1', str(chain_list))
 
     

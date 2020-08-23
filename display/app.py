@@ -5,6 +5,7 @@ import blockchain
 from camera import VideoCamera
 import cv2
 import pyautogui
+import confirm
 
 
 def get_db_connection():
@@ -99,7 +100,6 @@ def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
 @app.route('/takescreenshot', methods = ['GET','POST'])
 def contact():
     if request.method == 'POST':
@@ -116,8 +116,10 @@ def contact():
 def comparison():
     if request.method == 'POST':
         if request.form['Verify'] == 'Verify':
-            print('FRIEDRICE------------------------')
+            print('Id verifying...')
+            confirm.check_identity()
     elif request.method == 'GET':
         print("Button was not pressed")
+    
     return render_template('verification.html')
 
