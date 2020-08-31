@@ -56,7 +56,7 @@ def automation(name, address, email):
     
     chain_list = blockchain.chain
 
-    spreadsheetId = "1qTITycZDJZLm3VNvRUMXxaHLcjIu_frw5Aylny7AkOI"  # Please set the Spreadsheet ID.
+    # Please set the Spreadsheet ID spreadsheetId = "insert spreadsheet ID"  
     sheetName = "test1"  # Please set the sheet name.
     scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive'] 

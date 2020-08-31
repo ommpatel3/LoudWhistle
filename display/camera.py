@@ -1,6 +1,6 @@
 import cv2
 #import face_recognition
-face_cascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+face_cascade=cv2.CascadeClassifier("# enter the name of the haarcascade_frontalface_default.xml file")
 ds_factor=0.6
 
 class VideoCamera(object):

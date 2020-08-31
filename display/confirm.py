@@ -1,4 +1,4 @@
-import face_recognition
+#import face_recognition
   
 def check_identity():
 
