@@ -1,7 +1,7 @@
 Created by Om Patel, Gunit Raj Waghrey, Saurav Guduru, Rijin Muralidharan
 
 ##Inspiration
-- When the infamous Edward Snowden came out and revealed that the NSA was tracking and collecting private user data, he was driven out of his country and was deemed by the government as a criminal. In more recent times, we have seen how elections are being interfered by external sources such as russian hackers. These deeply rooted political issues was something our team felt had to be addressed.
+- When the infamous Edward Snowden came out and revealed that the NSA was tracking and collecting private user data, he was driven out of his country and was deemed by the government as a criminal. In more recent times, we have seen the susceptibilities of elections to external sources such as Russian hackers. These deeply rooted political issues was something our team felt had to be addressed.
 
 ##What it does
 - We built a platform for whistleblowers to safely report mishaps in governmental and corporate hierarchies without feeling scared that they will be tracked. This information will then be available to masses of people as it rightfully should be.
